@@ -1,5 +1,6 @@
-package com.example.Capstone.task;
+package com.example.Capstone.task.model;
 
+import com.example.Capstone.uuidGeneratorV7.GeneratedUuidV7;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,13 +8,14 @@ import jakarta.persistence.Id;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.UUID;
+
 @Entity
 @Data
 public class Task {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedUuidV7
+    private UUID id;
 
     @Column(name = "name")
     private String name;
